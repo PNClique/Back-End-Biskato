@@ -1,21 +1,21 @@
 const routes = require('express').Router();
 const { User } = require('../app/models')
 
-User.create({name: 'Edocha', email: 'edocha@gmail.com', profession: 'Programador', address: 'Viana, viana', password: '1234567' })
 
-// const authMiddleware = require('../app/middlewares/authToken');
+const authMiddleware = require('../app/middlewares/authToken');
 
-// const SessionController = require('../app/controllers/index.js')
+const UserController = require('../app/controllers/UserController')
 
 // definitions routes
 
-// routes.post('/sessions', SessionController.store);
+routes.post('/auth', UserController.auth);
+routes.post('/register', UserController.register);
 
-// routes.use(authMiddleware);
+routes.use(authMiddleware);
 
-// routes.get('/dashboard', (req, res) => {
-//     return res.status(200).send();
-// })
+routes.get('/dashboard', (req, res) => {
+    return res.status(200).send();
+})
 
 
 module.exports = routes;
