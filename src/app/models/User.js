@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
+const Jobs = require('./Jobs');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -34,6 +35,9 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.generateToken = function() {
     return jwt.sign({id: this.id}, process.env.APP_SECRET)
   }
+
+  User.hasMany(Jobs, { as: "jobs" });
+
 
   return User;
 };
