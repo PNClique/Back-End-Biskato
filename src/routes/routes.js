@@ -24,5 +24,8 @@ routes.post('/job', JobsController.create);
 routes.put('/job/:id', JobsController.update);
 routes.delete('/job/:id', JobsController.delete);
 routes.get('/jobs', JobsController.getAllJobs);
+routes.get('/job/:id', JobsController.getJobsById);
+routes.get('/job/author/:authorId', JobsController.getJobsByAuthorId);
+routes.get('/job/search/:search', JobsController.searchJobs);
 
 module.exports = routes;

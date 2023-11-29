@@ -30,6 +30,19 @@ module.exports = {
         type: Sequelize.NUMBER,
         allowNull: false,
       },
+      requeriments: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      responsibility: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      is_active: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+        allowNull: false,
+      },
       author_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {

@@ -23,6 +23,8 @@ describe("Testes dos biskatos", () => {
         description: "Preciso de um programador para fazer um site",
         address: "Luanda, viana",
         remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
         author_id: user.id,
       });
 
@@ -43,6 +45,8 @@ describe("Testes dos biskatos", () => {
         description: "Preciso de um programador para fazer um site",
         address: "Luanda, viana",
         remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
         author_id: user.id,
       });
 
@@ -55,10 +59,10 @@ describe("Testes dos biskatos", () => {
         description: "Preciso de programadores para fazerem um site",
         address: "Luanda, viana",
         remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
         author_id: user.id,
       });
-
-      
 
     expect(res.status).toBe(200);
   });
@@ -79,8 +83,6 @@ describe("Testes dos biskatos", () => {
   //       remuneration: 150000,
   //       author_id: user.id,
   //     });
-
-      
 
   //   expect(res.status).toBe(404);
   // });
@@ -110,6 +112,8 @@ describe("Testes dos biskatos", () => {
         description: "Preciso de um programador para fazer um site",
         address: "Luanda, viana",
         remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
         author_id: user.id,
       });
 
@@ -130,6 +134,84 @@ describe("Testes dos biskatos", () => {
       .set("Authorization", `Bearer ${user.generateToken()}`);
 
     expect(res.status).toBe(200);
+  });
+
+  it("Pegando um biskato pelo seu id", async () => {
+    const user = await factory.create("User", {
+      email: "quinto05@email.com",
+    });
+
+    const response = await request(app)
+      .post("/job")
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        title: "Preciso de um outro programador",
+        image: "jobs.png",
+        description: "Preciso de um programador para fazer um site",
+        address: "Luanda, viana",
+        remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
+        author_id: user.id,
+      });
+
+    const res = await request(app)
+      .get(`/job/${response.body.jobs.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+      expect(res.status).toBe(200);
+  });
+
+  it("Pegando um biskato pelo id do autor (author)", async () => {
+    const user = await factory.create("User", {
+      email: "quinto06@email.com",
+    });
+
+    const response = await request(app)
+      .post("/job")
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        title: "Preciso de um outro programador",
+        image: "jobs.png",
+        description: "Preciso de um programador para fazer um site",
+        address: "Luanda, viana",
+        remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
+        author_id: user.id,
+      });
+
+    const res = await request(app)
+      .get(`/job/author/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+      expect(res.status).toBe(200);
+  });
+
+  it("Pesquisando um biskato pelo titulo, endereco ou renumeracao ", async () => {
+    const user = await factory.create("User", {
+      email: "quinto07@email.com",
+    });
+
+    const response = await request(app)
+      .post("/job")
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        title: "Programador",
+        image: "jobs.png",
+        description: "Preciso de um programador para fazer um site",
+        address: "Luanda, viana",
+        remuneration: 150000,
+        requeriments: "1 -> Saber programar",
+        responsibility: " Construir um site",
+        author_id: user.id,
+      });
+
+    const res = await request(app)
+      .get(`/job/search/${response.body.jobs.address}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+      expect(res.status).toBe(200);
   });
 
 });
