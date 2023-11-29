@@ -1,50 +1,58 @@
-'use strict';
+"use strict";
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('jobs', {
-      id : {
+  async up(queryInterface, Sequelize) {
+    return queryInterface.createTable("jobs", {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        allowNull: false,
       },
-      title :{
+      title: {
         type: Sequelize.STRING,
         allowNull: false,
-      }, 
-      image :{
-        type: Sequelize.STRING,
-        allowNull: true
-      }, 
-      description :{
-        type: Sequelize.STRING,
-        allowNull: true
-      }, 
-      address :{
-        type: Sequelize.STRING,
-        allowNull: false
       },
-      remuneration :{
+      image: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      address: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      remuneration: {
         type: Sequelize.NUMBER,
-        allowNull: false
-      }, 
-       authorId: {
+        allowNull: false,
+      },
+      author_id: {
         type: Sequelize.DataTypes.INTEGER,
         references: {
           model: {
-            tableName: 'users',
-            schema: 'schema'
+            tableName: "users",
+            // schema: "schema",
           },
-          key: 'id'
+          key: "id",
         },
-        allowNull: false
+        allowNull: false,
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
       },
     });
   },
 
-  async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('jobs');
-  }
+  async down(queryInterface, Sequelize) {
+    return queryInterface.dropTable("jobs");
+  },
 };

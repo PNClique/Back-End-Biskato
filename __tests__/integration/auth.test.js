@@ -1,16 +1,17 @@
 const request = require("supertest");
 
 const app = require("../../src/app");
-const truncate = require("../utils/truncate");
+// const truncate = require("../utils/truncate");
 const factory = require("../factories");
 
 describe("Autenticacao", () => {
-  beforeEach(async () => {
-    await truncate();
-  });
+  // beforeEach(async () => {
+  //   await truncate();
+  // });
 
   it("Deve autenticar com as credenciais validas", async () => {
     const user = await factory.create("User", {
+      email: 'primeiro@email.com',
       password: "1234567",
     });
 
@@ -27,6 +28,7 @@ describe("Autenticacao", () => {
 
   it("Nao deve autenticar se as credenciais nao forem validas", async () => {
     const user = await factory.create("User", {
+      email: 'segundo@email.com',
       password: "123456789",
     });
 
@@ -43,6 +45,7 @@ describe("Autenticacao", () => {
 
   it("Deve retornar um token jwt quando a autenticacao for bem sucedida", async () => {
     const user = await factory.create("User", {
+      email: 'terceiro@email.com',
       password: "1234567",
     });
 
@@ -56,6 +59,7 @@ describe("Autenticacao", () => {
 
   it("Acessando rotas privadas quando o user estiver logado", async () => {
     const user = await factory.create("User", {
+      email: 'quarto@email.com',
       password: "1234567",
     });
 

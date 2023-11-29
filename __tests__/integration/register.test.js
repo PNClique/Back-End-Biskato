@@ -1,19 +1,19 @@
 const request = require("supertest");
 
 const app = require("../../src/app");
-const truncate = require("../utils/truncate");
+// const truncate = require("../utils/truncate");
 const factory = require("../factories");
 
 describe("Registro de usuario", () => {
-  beforeEach(async () => {
-    await truncate();
-  });
+  // beforeEach(async () => {
+  //   await truncate();
+  // });
 
   it("Criando um usuario", async () => {
     const res = await request(app).post("/register").send({
       name: "Paulo paulo",
       image: "foto.png",
-      email: "paulo00001@gmail.com",
+      email: "paulo0000001@gmail.com",
       password: "paulo001",
       profession: "Teacher",
       address: "Luanda, viana",
@@ -28,7 +28,7 @@ describe("Registro de usuario", () => {
 
   it("Verificando se o usuario ja existe", async () => {
     const user = await factory.create("User", {
-        email: "paulo00001@gmail.com",
+        email: "paulo0000002@gmail.com",
       });
     const res = await request(app).post("/register").send({
       email: user.email,

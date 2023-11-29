@@ -16,6 +16,8 @@ class UserController {
     } = req.body;
 
     try {
+      console.log('req.body register : ', req.body);
+      console.log('emai register : ', req.body.email);
       const findUser = await User.findOne({ where: { email } });
       if (findUser) {
         return res.status(401).send({ error: "User already exists." });
@@ -105,6 +107,7 @@ class UserController {
         token: user.generateToken(),
       });
     } catch (err) {
+      console.log('emai register in error : ', email);
       console.log("error in register of the user : ", err);
       return res.status(400).send({ error: "Registration failed : ", err });
     }

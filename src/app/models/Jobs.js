@@ -1,4 +1,4 @@
-const User = require("./User");
+// const User = require("./User");
 
 module.exports = (sequelize, DataTypes) => {
   const Jobs = sequelize.define(
@@ -8,12 +8,20 @@ module.exports = (sequelize, DataTypes) => {
       image: DataTypes.STRING,
       description: DataTypes.STRING,
       address: DataTypes.STRING,
-      authorId: DataTypes.STRING,
-      remuneration : DataTypes.STRING,
+      author_id: DataTypes.STRING,
+      remuneration : DataTypes.NUMBER,
+    },
+    {
+      tableName: 'jobs'
     }
   );
 
-  Jobs.belongsTo (User, { foreignKey: "authorId", as: "author", });
+  Jobs.associate = (models) => {
+    Jobs.belongsTo(models.User,
+      { foreignKey: 'author_id', as: 'author' });
+  };
+
+  // Jobs.belongsTo (User, { foreignKey: "authorId", as: "author", });
 
 
   return Jobs;

@@ -3,12 +3,13 @@ const truncate = require('../utils/truncate');
 const factory = require("../factories");
 
 describe('User', () => { 
-    beforeEach( async () => {
-        await truncate();
-    });
+    // beforeEach( async () => {
+    //     await truncate();
+    // });
 
     it ('Encriptando a senha do usuario', async () => {
         const user = await factory.create('User',{
+            email: 'sexto@email.com',
             name: "edocha",
             password: '1234567'
           });
