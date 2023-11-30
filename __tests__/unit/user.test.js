@@ -11,7 +11,8 @@ describe('User', () => {
         const user = await factory.create('User',{
             email: 'sexto@email.com',
             name: "edocha",
-            password: '1234567'
+            password: '1234567',
+            pin_code: '1234587',
           });
 
           const compareHash = await bcrypt.compare('1234567', user.password);

@@ -29,7 +29,7 @@ module.exports = {
     },
     address : {
       type: Sequelize.STRING,
-      allowNull: false
+      allowNull: true
     },
     password: {
       type: Sequelize.STRING,
@@ -39,7 +39,37 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    pin_code: {
+      type: Sequelize.NUMBER,
+      unique: true,
+      allowNull: false,
+    },
+    birth_date: {
+      type: Sequelize.DATE,
+      allowNull: true,
+    },
+    genre: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    province: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    country: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
+    nif: {
+      type: Sequelize.STRING,
+      allowNull: true,
+    },
     is_admin: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false,
+      allowNull: true
+    },
+    level: {
       type: Sequelize.BOOLEAN,
       defaultValue: false,
       allowNull: true

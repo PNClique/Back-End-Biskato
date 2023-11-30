@@ -12,13 +12,12 @@ describe("Registro de usuario", () => {
   it("Criando um usuario", async () => {
     const res = await request(app).post("/register").send({
       name: "Paulo paulo",
-      image: "foto.png",
       email: "paulo0000001@gmail.com",
       password: "paulo001",
-      profession: "Teacher",
-      address: "Luanda, viana",
-      phone: '936654821',
+      phone: "936654821",
+      pin_code: "1234568",
       is_admin: false,
+      level: false,
       verification_by_email_token: "edocha.00100",
       verification_by_email_expires: "10/10/2023",
     });
@@ -28,8 +27,9 @@ describe("Registro de usuario", () => {
 
   it("Verificando se o usuario ja existe", async () => {
     const user = await factory.create("User", {
-        email: "paulo0000002@gmail.com",
-      });
+      email: "paulo0000002@gmail.com",
+      pin_code: '1234569',
+    });
     const res = await request(app).post("/register").send({
       email: user.email,
     });

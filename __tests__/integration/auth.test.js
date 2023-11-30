@@ -13,6 +13,7 @@ describe("Autenticacao", () => {
     const user = await factory.create("User", {
       email: 'primeiro@email.com',
       password: "1234567",
+      pin_code: '1234560',
     });
 
     // console.log(user);
@@ -30,6 +31,7 @@ describe("Autenticacao", () => {
     const user = await factory.create("User", {
       email: 'segundo@email.com',
       password: "123456789",
+      pin_code: '123456',
     });
 
     // console.log(user);
@@ -47,6 +49,7 @@ describe("Autenticacao", () => {
     const user = await factory.create("User", {
       email: 'terceiro@email.com',
       password: "1234567",
+      pin_code: '12345',
     });
 
     const response = await request(app).post("/auth").send({
@@ -61,6 +64,7 @@ describe("Autenticacao", () => {
     const user = await factory.create("User", {
       email: 'quarto@email.com',
       password: "1234567",
+      pin_code: '123457',
     });
 
     const res = await request(app)

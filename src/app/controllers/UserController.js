@@ -9,10 +9,8 @@ class UserController {
       email,
       name,
       password,
-      profession,
-      address,
-      image,
-      phone
+      phone,
+      pin_code
     } = req.body;
 
     try {
@@ -87,12 +85,11 @@ class UserController {
 
       const user = await User.create({
         email: email,
-        image: image,
         name: name,
-        profession: profession,
-        address: address,
         password: password,
         phone: phone,
+        pin_code : pin_code,
+        level: false,
         is_admin: false,
         verification_by_email_token: token,
         verification_by_email_expires: now,

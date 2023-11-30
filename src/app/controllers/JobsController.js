@@ -85,6 +85,7 @@ class JobsController {
     }
   }
 
+  // delete an job
   async delete(req, res) {
     try {
       const job = await Jobs.destroy({ where: { id: req.params.id } });
@@ -140,6 +141,8 @@ class JobsController {
     }
   }
 
+
+  // get an job by id of the author
   async getJobsByAuthorId(req, res) {
     try {
       const { authorId } = req.params;
@@ -163,6 +166,8 @@ class JobsController {
     }
   }
 
+
+  // search jobs by title or address
   async searchJobs(req, res) {
     try {
       const { search } = req.params;

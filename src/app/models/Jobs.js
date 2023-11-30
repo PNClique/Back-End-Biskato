@@ -1,5 +1,3 @@
-// const User = require("./User");
-
 module.exports = (sequelize, DataTypes) => {
   const Jobs = sequelize.define(
     "Jobs",
@@ -23,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
     Jobs.belongsTo(models.User,
       { foreignKey: 'author_id', as: 'author' });
   };
+
+  // Jobs.associate = (models) => {
+  //   Jobs.belongsToMany(models.Candidacy, { through: models.JobsAndCandidacy });
+  // };
 
   // Jobs.belongsTo (User, { foreignKey: "authorId", as: "author", });
 

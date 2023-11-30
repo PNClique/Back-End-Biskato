@@ -12,6 +12,7 @@ describe("Testes dos biskatos", () => {
   it("Criando um biskato", async () => {
     const user = await factory.create("User", {
       email: "quinto@email.com",
+      pin_code: '123490130',
     });
 
     const res = await request(app)
@@ -34,6 +35,7 @@ describe("Testes dos biskatos", () => {
   it("Actualizando um biskato", async () => {
     const user = await factory.create("User", {
       email: "quinto01@email.com",
+      pin_code: '123401109',
     });
 
     const response = await request(app)
@@ -90,6 +92,7 @@ describe("Testes dos biskatos", () => {
   it("Impedido de Apagar um biskato porque ele nao existe", async () => {
     const user = await factory.create("User", {
       email: "quinto03@email.com",
+      pin_code: '123',
     });
 
     const res = await request(app)
@@ -102,6 +105,7 @@ describe("Testes dos biskatos", () => {
   it("Apagando um biskato", async () => {
     const user = await factory.create("User", {
       email: "quinto04@email.com",
+      pin_code: '1234580897',
     });
     const response = await request(app)
       .post("/job")
@@ -127,6 +131,7 @@ describe("Testes dos biskatos", () => {
   it("Pegando todos os biskato", async () => {
     const user = await factory.create("User", {
       email: "quintoJobs@email.com",
+      pin_code: '1234227',
     });
 
     const res = await request(app)
@@ -139,6 +144,7 @@ describe("Testes dos biskatos", () => {
   it("Pegando um biskato pelo seu id", async () => {
     const user = await factory.create("User", {
       email: "quinto05@email.com",
+      pin_code: '1234511',
     });
 
     const response = await request(app)
@@ -165,6 +171,7 @@ describe("Testes dos biskatos", () => {
   it("Pegando um biskato pelo id do autor (author)", async () => {
     const user = await factory.create("User", {
       email: "quinto06@email.com",
+      pin_code: '12345005',
     });
 
     const response = await request(app)
@@ -191,6 +198,7 @@ describe("Testes dos biskatos", () => {
   it("Pesquisando um biskato pelo titulo, endereco ou renumeracao ", async () => {
     const user = await factory.create("User", {
       email: "quinto07@email.com",
+      pin_code: '145671234567',
     });
 
     const response = await request(app)
