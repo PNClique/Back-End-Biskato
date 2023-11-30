@@ -27,6 +27,10 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: true
     },
+    user_status : {
+      type : Sequelize.STRING,
+      allowNull: true
+    },
     address : {
       type: Sequelize.STRING,
       allowNull: true

@@ -27,7 +27,6 @@ class JobsController {
         author_id: author_id,
       });
 
-      console.log("jobs create : ", jobs);
 
       return res.status(201).send({ jobs });
     } catch (error) {
@@ -74,10 +73,6 @@ class JobsController {
       }
       const job = jobs[1][0]; //.dataValues;
 
-      console.log("job update : ", job);
-      console.log("jobs update : ", jobs);
-      console.log("jobs[0] update : ", jobs[0]);
-      console.log("jobs[1] update : ", jobs[1]);
       return res.status(200).send({ job });
     } catch (error) {
       console.log("Error in update an job : ", error);
@@ -110,7 +105,6 @@ class JobsController {
         include: { model: User, as: "author" },
       });
 
-      console.log("return all jobs : ", jobs);
       return res.status(200).send({ jobs });
     } catch (error) {
       console.log("Error in get all jobs : ", error);
@@ -131,8 +125,6 @@ class JobsController {
           .status(404)
           .send({ message: "The job with the given id was not found" });
       }
-
-      console.log("res job get by id : ", job);
 
       return res.status(200).send({ job });
     } catch (error) {

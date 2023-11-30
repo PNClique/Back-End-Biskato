@@ -8,6 +8,7 @@ factory.define("User", User, {
   password: 'edocha.001', //faker.internet.password(),
   phone: '9366654821',
   pin_code: '1234567',
+  user_status : 'Casado',
   is_admin: false,
   level: false,
   verification_by_email_token: 'edocha.00100', //faker.internet.password(),
