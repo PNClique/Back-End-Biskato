@@ -35,6 +35,7 @@ routes.put(
   uploadFile,
   UserController.update
 );
+routes.get("/users", UserController.getAllJUsers);
 
 // definitions of routes of the jobs (biskatos)
 routes.post("/job", JobsController.create);

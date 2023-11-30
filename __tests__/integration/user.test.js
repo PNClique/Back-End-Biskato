@@ -67,4 +67,18 @@ describe("Testes do usuario", () => {
 
     expect(res.status).toBe(200);
   });
+
+  it("Pegando todos os usuarios", async () => {
+    const user = await factory.create("User", {
+      email: "allusers@email.com",
+      pin_code: '227227',
+    });
+
+    const res = await request(app)
+      .get("/users")
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+    expect(res.status).toBe(200);
+  });
+
 });

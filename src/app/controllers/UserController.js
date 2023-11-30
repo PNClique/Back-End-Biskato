@@ -182,6 +182,20 @@ class UserController {
       return res.status(400).send({ error: "Error in update a user" });
     }
   }
+
+  // get all users
+  async getAllJUsers(req, res) {
+    try {
+      const users = await User.findAll({
+        // include: { model: User, as: "author" },
+      });
+
+      return res.status(200).send({ users });
+    } catch (error) {
+      console.log("Error in get all users : ", error);
+      return res.status(400).send({ error: "Error get all users" });
+    }
+  }
 }
 
 module.exports = new UserController();
