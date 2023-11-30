@@ -36,6 +36,8 @@ routes.put(
   UserController.update
 );
 routes.get("/users", UserController.getAllJUsers);
+routes.get("/user/:id", UserController.getUserById);
+routes.get("/user/search/:search", UserController.searchUsers);
 
 // definitions of routes of the jobs (biskatos)
 routes.post("/job", JobsController.create);

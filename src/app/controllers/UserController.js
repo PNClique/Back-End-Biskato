@@ -1,3 +1,4 @@
+const { Op } = require("sequelize");
 const crypto = require("crypto");
 const { User } = require("../models");
 
@@ -194,6 +195,63 @@ class UserController {
     } catch (error) {
       console.log("Error in get all users : ", error);
       return res.status(400).send({ error: "Error get all users" });
+    }
+  }
+
+  // get a user by id
+  async getUserById(req, res) {
+    try {
+      const { id } = req.params;
+      const user = await User.findOne({
+        where: { id: id },
+        // include: { model: User, as: "author" },
+      });
+      if (!user) {
+        return res
+          .status(404)
+          .send({ message: "The user with the given id was not found" });
+      }
+
+      return res.status(200).send({ user });
+    } catch (error) {
+      console.log("Error in get a user by id : ", error);
+      return res.status(400).send({ error: "Error get a user by id" });
+    }
+  }
+
+  // search users by name or email
+  async searchUsers(req, res) {
+    try {
+      const { search } = req.params;
+      const user = await User.findAll({
+        where: {
+          [Op.or]: [
+            { name: search },
+            { email: search },
+          ],
+        },
+        // include: { model: User, as: "author" },
+      });
+
+      if (!user) {
+        return res.status(404).send({
+          message:
+            "The user with the given name or email was not found",
+        });
+      }
+
+      console.log('user search : ', user);
+
+      return res.status(200).send({ user });
+    } catch (error) {
+      console.log(
+        "error in search user with the given name or email : ",
+        error
+      );
+      return res.status(400).send({
+        error:
+          "error in search user with the given name or email",
+      });
     }
   }
 }

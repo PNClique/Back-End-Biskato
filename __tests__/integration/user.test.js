@@ -81,4 +81,35 @@ describe("Testes do usuario", () => {
     expect(res.status).toBe(200);
   });
 
+  it("Pegando um usuario pelo seu id", async () => {
+    const user = await factory.create("User", {
+      email: "getuserbyid@email.com",
+      pin_code: '1511',
+    });
+  
+    const res = await request(app)
+      .get(`/user/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+  
+      expect(res.status).toBe(200);
+  });
+
+
+  it("Pesquisando um usuario pelo nome ou email ", async () => {
+    const user = await factory.create("User", {
+      email: "searchuser@email.com",
+      pin_code: '145145',
+    });
+
+    const res = await request(app)
+      .get(`/user/search/${user.email}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`);
+
+      expect(res.status).toBe(200);
+  });
+
 });
+
+
+
+
