@@ -24,15 +24,11 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: true,
       },
       remuneration: {
-        type: Sequelize.NUMBER,
-        allowNull: false,
-      },
-      requeriments: {
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
       },
       responsibility: {
         type: Sequelize.STRING,
@@ -48,7 +44,6 @@ module.exports = {
         references: {
           model: {
             tableName: "users",
-            // schema: "schema",
           },
           key: "id",
         },

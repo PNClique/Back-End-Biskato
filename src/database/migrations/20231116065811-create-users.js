@@ -44,7 +44,7 @@ module.exports = {
       allowNull: false,
     },
     pin_code: {
-      type: Sequelize.NUMBER,
+      type: Sequelize.STRING,
       unique: true,
       allowNull: false,
     },

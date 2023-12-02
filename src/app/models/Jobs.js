@@ -6,28 +6,26 @@ module.exports = (sequelize, DataTypes) => {
       image: DataTypes.STRING,
       description: DataTypes.STRING,
       address: DataTypes.STRING,
-      requeriments: DataTypes.STRING,
       responsibility: DataTypes.STRING,
       is_active: DataTypes.BOOLEAN,
       author_id: DataTypes.INTEGER,
-      remuneration : DataTypes.NUMBER,
+      remuneration: DataTypes.STRING,
     },
     {
-      tableName: 'jobs'
+      tableName: "jobs",
     }
   );
 
   Jobs.associate = (models) => {
-    Jobs.belongsTo(models.User,
-      { foreignKey: 'author_id', as: 'author' });
+    // def relationships of the users
+    Jobs.belongsTo(models.User, { foreignKey: "author_id", as: "author" });
+
+    // def relationship of the requeriments
+    Jobs.hasMany(models.Requeriments, { foreignKey: "job_id", as: "requeriments" });
   };
 
   // Jobs.associate = (models) => {
   //   Jobs.belongsToMany(models.Candidacy, { through: models.JobsAndCandidacy });
   // };
-
-  // Jobs.belongsTo (User, { foreignKey: "authorId", as: "author", });
-
-
   return Jobs;
 };

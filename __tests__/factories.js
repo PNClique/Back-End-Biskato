@@ -1,6 +1,6 @@
 // const faker = require('faker');
 const { factory } = require("factory-girl");
-const { User } = require("../src/app/models");
+const { User, Requeriments } = require("../src/app/models");
 
 factory.define("User", User, {
   name: 'Edocha', //faker.name.findName(),
@@ -13,6 +13,11 @@ factory.define("User", User, {
   level: false,
   verification_by_email_token: 'edocha.00100', //faker.internet.password(),
   verification_by_email_expires: '10/10/2023', //faker.internet.password(),
+});
+
+factory.define("Requeriments", Requeriments, {
+  name: 'Edocha', //faker.name.findName(),
+  job_id: 1, //faker.internet.email(),
 });
 
 
