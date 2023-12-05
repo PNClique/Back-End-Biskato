@@ -38,6 +38,8 @@ routes.put(
 );
 routes.get("/users", UserController.getAllJUsers);
 routes.get("/user/:id", UserController.getUserById);
+routes.put("/user/change-password/:id", UserController.changePassword);
+routes.put("/user/change-code/:id", UserController.changeCodePin);
 routes.get("/user/search/:search", UserController.searchUsers);
 
 // definitions of routes of the jobs (biskatos)

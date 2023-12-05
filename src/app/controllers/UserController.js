@@ -13,10 +13,12 @@ class UserController {
       if (findUser) {
         return res.status(401).send({ error: "User already exists." });
       }
-      
+
       const findUserWithPinCode = await User.findOne({ where: { pin_code } });
       if (findUserWithPinCode) {
-        return res.status(423).send({ error: "User with same code pin already exists." });
+        return res
+          .status(423)
+          .send({ error: "User with same code pin already exists." });
       }
 
       //generating a new token
@@ -135,7 +137,7 @@ class UserController {
       country,
       nif,
       level,
-      user_status
+      user_status,
     } = req.body;
 
     try {
@@ -152,7 +154,7 @@ class UserController {
           password,
           phone,
           pin_code,
-          image : photo,
+          image: photo,
           address,
           birth_date,
           genre,
@@ -160,7 +162,7 @@ class UserController {
           country,
           nif,
           level,
-          user_status
+          user_status,
         },
         {
           returning: true,
@@ -183,6 +185,90 @@ class UserController {
       return res.status(400).send({ error: "Error in update a user" });
     }
   }
+
+  // change password of the user
+  async changePassword(req, res) {
+    const { password, new_password, confirm_password } = req.body;
+
+    try {
+      const { id } = req.params;
+      const findUser = await User.findOne({ where: { id: id }, });
+
+      if (!(await findUser.checkPassword(password))) {
+        return res.status(401).send({ message: "Incorrect password, try again !" });
+      }
+
+      if (new_password !== confirm_password) {
+        return res.status(401).send({ message: "new password and confirm password are different." });
+      }
+      const users = await User.update(
+        {
+          password: new_password,
+        },
+        {
+          returning: true,
+          where: { id: id },
+        }
+      );
+
+      if (users[0] === 0) {
+        return res
+          .status(404)
+          .send({ message: "The User with the given id was not found" });
+      }
+      const user = users[1][0];
+
+      console.log("user change password : ", user);
+      console.log("users change password : ", users);
+      return res.status(200).send({ user });
+    } catch (error) {
+      console.log("Error in change password a user : ", error);
+      return res.status(400).send({ error: "Error in change password a user" });
+    }
+  }
+
+  // change code pin of the user
+  async changeCodePin(req, res) {
+    const { old_pin_code, new_pin_code, confirm_pin_code } = req.body;
+
+    try {
+      const { id } = req.params;
+      const findUser = await User.findOne({ where: { id: id }, });
+
+      if (findUser.pin_code !== old_pin_code) {
+        return res.status(401).send({ message: "Incorrect code pin, try again !" });
+      }
+
+      if (new_pin_code !== confirm_pin_code) {
+        return res.status(401).send({ message: "new code pin and confirm code pin are different." });
+      }
+
+      const users = await User.update(
+        {
+          pin_code: new_pin_code,
+        },
+        {
+          returning: true,
+          where: { id: id },
+        }
+      );
+
+      if (users[0] === 0) {
+        return res
+          .status(404)
+          .send({ message: "The User with the given id was not found" });
+      }
+      const user = users[1][0];
+
+      console.log("user change code pin : ", user);
+      console.log("users change code pin : ", users);
+      return res.status(200).send({ user });
+    } catch (error) {
+      console.log("Error in change code pin a user : ", error);
+      return res.status(400).send({ error: "Error in change code pin a user" });
+    }
+  }
+  
 
   // get all users
   async getAllJUsers(req, res) {
@@ -225,22 +311,16 @@ class UserController {
       const { search } = req.params;
       const user = await User.findAll({
         where: {
-          [Op.or]: [
-            { name: search },
-            { email: search },
-          ],
+          [Op.or]: [{ name: search }, { email: search }],
         },
         // include: { model: User, as: "author" },
       });
 
       if (!user) {
         return res.status(404).send({
-          message:
-            "The user with the given name or email was not found",
+          message: "The user with the given name or email was not found",
         });
       }
-
-      console.log('user search : ', user);
 
       return res.status(200).send({ user });
     } catch (error) {
@@ -249,8 +329,7 @@ class UserController {
         error
       );
       return res.status(400).send({
-        error:
-          "error in search user with the given name or email",
+        error: "error in search user with the given name or email",
       });
     }
   }

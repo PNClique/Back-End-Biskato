@@ -43,7 +43,7 @@ describe("Testes do usuario", () => {
       pin_code: "1234569111100011",
     });
     const res = await request(app)
-      .put(`/user/update/:${user.id}`)
+      .put(`/user/update/${user.id}`)
       .set("Authorization", `Bearer ${user.generateToken()}`)
       .send({
         name: "Paulo paulo",
@@ -66,6 +66,111 @@ describe("Testes do usuario", () => {
       });
 
     expect(res.status).toBe(200);
+  });
+
+  it("Actualizando a senha de um usuario", async () => {
+    const user = await factory.create("User", {
+      email: "edocha3330@gmail.com",
+      pin_code: "1233330",
+      password : 'my.password'
+    });
+    const res = await request(app)
+      .put(`/user/change-password/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        password: 'my.password',
+        new_password: "new.password",
+        confirm_password: "new.password",
+      });
+
+    expect(res.status).toBe(200);
+  });
+
+  it("Verificando se senha digitada e igual a senha antiga do usuario", async () => {
+    const user = await factory.create("User", {
+      email: "edocha33300@gmail.com",
+      pin_code: "12333300",
+      password : 'my.password'
+    });
+    const res = await request(app)
+      .put(`/user/change-password/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        password: 'my.password01',
+        new_password: "new.password",
+        confirm_password: "new.password",
+      });
+
+    expect(res.status).toBe(401);
+  });
+
+  it("Verificando se a nova senha digitada e igual a confirma senha", async () => {
+    const user = await factory.create("User", {
+      email: "edocha3330000@gmail.com",
+      pin_code: "1233330000",
+      password : 'my.password'
+    });
+    const res = await request(app)
+      .put(`/user/change-password/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        password: 'my.password',
+        new_password: "new.password",
+        confirm_password: "new.password00",
+      });
+
+    expect(res.status).toBe(401);
+  });
+
+  it("Actualizando o codigo pin de um usuario", async () => {
+    const user = await factory.create("User", {
+      email: "edochacodepin@gmail.com",
+      pin_code: "124440",
+    });
+    const res = await request(app)
+      .put(`/user/change-code/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        old_pin_code: '124440',
+        new_pin_code: "00440",
+        confirm_pin_code: "00440",
+      });
+
+    expect(res.status).toBe(200);
+  });
+
+  it("Verificando se codigo pin digitado e igual ao codigo pin antiga do usuario", async () => {
+    const user = await factory.create("User", {
+      email: "edochacodepin01@gmail.com",
+      pin_code: "1244400",
+    });
+    const res = await request(app)
+      .put(`/user/change-code/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        old_pin_code: '12444000',
+        new_pin_code: "000440",
+        confirm_pin_code: "000440",
+      });
+
+    expect(res.status).toBe(401);
+  });
+
+  it("Verificando se o novo codigo pin digitado e igual a confirma codigo pin", async () => {
+    const user = await factory.create("User", {
+      email: "edochacodepin02@gmail.com",
+      pin_code: "11244400",
+    });
+    const res = await request(app)
+      .put(`/user/change-code/${user.id}`)
+      .set("Authorization", `Bearer ${user.generateToken()}`)
+      .send({
+        old_pin_code: user.pin_code,
+        new_pin_code: "112444000",
+        confirm_pin_code: "000440",
+      });
+
+    expect(res.status).toBe(401);
   });
 
   it("Pegando todos os usuarios", async () => {

@@ -41,7 +41,7 @@ describe("Testes dos requisitos", () => {
       });
 
     const res = await request(app)
-      .put(`/requeriment/:${response.body.requeriments.id}`)
+      .put(`/requeriment/${response.body.requeriments.id}`)
       .set("Authorization", `Bearer ${user.generateToken()}`)
       .send({
         name: "Dominio de programacao",
@@ -61,14 +61,14 @@ describe("Testes dos requisitos", () => {
     .set("Authorization", `Bearer ${user.generateToken()}`)
     .send({
       name: "Saber programar",
-      job_id: 1,
+      job_id: 2,
     });
 
     const res = await request(app)
-      .delete(`/requeriment/:${response.body.requeriments.id}`)
+      .delete(`/requeriment/${response.body.requeriments.id}`)
       .set("Authorization", `Bearer ${user.generateToken()}`);
 
-    expect(res.status).toBe(404);
+    expect(res.status).toBe(200);
   });
 
   it("Pegando todos os requisitos", async () => {
