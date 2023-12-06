@@ -50,6 +50,9 @@ module.exports = (sequelize, DataTypes) => {
     // def relationships of the applications
     User.hasMany(models.Applications, { foreignKey: "author_id", as: "applications" });
 
+     // def relationships of the professions
+     User.hasMany(models.Professions, { foreignKey: "author_id", as: "professions" });
+
   };
 
   // User.associate = (models) => {

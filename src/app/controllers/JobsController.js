@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Jobs, User } = require("../models");
+const { Jobs, User, Requeriments } = require("../models");
 
 class JobsController {
   // create an jobs (biskato)
@@ -26,7 +26,6 @@ class JobsController {
         responsibility: responsibility,
         author_id: author_id,
       });
-
 
       return res.status(201).send({ jobs });
     } catch (error) {
@@ -102,7 +101,10 @@ class JobsController {
   async getAllJobs(req, res) {
     try {
       const jobs = await Jobs.findAll({
-        include: { model: User, as: "author" },
+        include: [
+          { model: Requeriments, as: "requeriments" },
+          { model: User, as: "author" },
+        ],
       });
 
       return res.status(200).send({ jobs });
@@ -118,7 +120,10 @@ class JobsController {
       const { id } = req.params;
       const job = await Jobs.findOne({
         where: { id: id },
-        include: { model: User, as: "author" },
+        include: [
+          { model: Requeriments, as: "requeriments" },
+          { model: User, as: "author" },
+        ],
       });
       if (!job) {
         return res
@@ -133,7 +138,6 @@ class JobsController {
     }
   }
 
-
   // get an job by id of the author
   async getJobsByAuthorId(req, res) {
     try {
@@ -142,7 +146,10 @@ class JobsController {
         where: {
           author_id: authorId,
         },
-        include: { model: User, as: "author" },
+        include: [
+          { model: Requeriments, as: "requeriments" },
+          { model: User, as: "author" },
+        ],
       });
 
       if (!job) {
@@ -158,25 +165,23 @@ class JobsController {
     }
   }
 
-
   // search jobs by title or address
   async searchJobs(req, res) {
     try {
       const { search } = req.params;
       const job = await Jobs.findAll({
         where: {
-          [Op.or]: [
-            { title: search },
-            { address: search },
-          ],
+          [Op.or]: [{ title: search }, { address: search }],
         },
-        include: { model: User, as: "author" },
+        include: [
+          { model: Requeriments, as: "requeriments" },
+          { model: User, as: "author" },
+        ],
       });
 
       if (!job) {
         return res.status(404).send({
-          message:
-            "The job with the given title or address was not found",
+          message: "The job with the given title or address was not found",
         });
       }
 
@@ -187,8 +192,7 @@ class JobsController {
         error
       );
       return res.status(400).send({
-        error:
-          "error in filter job with the given title or address",
+        error: "error in filter job with the given title or address",
       });
     }
   }
