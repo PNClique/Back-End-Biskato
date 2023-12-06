@@ -137,7 +137,6 @@ class UserController {
       country,
       nif,
       level,
-      user_status,
     } = req.body;
 
     try {
@@ -162,7 +161,6 @@ class UserController {
           country,
           nif,
           level,
-          user_status,
         },
         {
           returning: true,

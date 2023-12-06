@@ -23,13 +23,14 @@ module.exports = {
       unique: true,
       allowNull: false
     },
-    profession: {
-      type: Sequelize.STRING,
-      allowNull: true
-    },
-    user_status : {
-      type : Sequelize.STRING,
-      allowNull: true
+    // profession: {
+    //   type: Sequelize.STRING,
+    //   allowNull: true
+    // },
+    status : {
+      type : Sequelize.BOOLEAN,
+      allowNull: true,
+      defaultValue: false
     },
     address : {
       type: Sequelize.STRING,

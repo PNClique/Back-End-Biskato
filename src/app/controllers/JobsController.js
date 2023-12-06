@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Jobs, User, Requeriments } = require("../models");
+const { Jobs, User } = require("../models");
 
 class JobsController {
   // create an jobs (biskato)
@@ -26,6 +26,8 @@ class JobsController {
         responsibility: responsibility,
         author_id: author_id,
       });
+
+      console.log('job create : ', jobs);
 
       return res.status(201).send({ jobs });
     } catch (error) {
@@ -102,7 +104,6 @@ class JobsController {
     try {
       const jobs = await Jobs.findAll({
         include: [
-          { model: Requeriments, as: "requeriments" },
           { model: User, as: "author" },
         ],
       });
@@ -121,7 +122,6 @@ class JobsController {
       const job = await Jobs.findOne({
         where: { id: id },
         include: [
-          { model: Requeriments, as: "requeriments" },
           { model: User, as: "author" },
         ],
       });
@@ -147,7 +147,6 @@ class JobsController {
           author_id: authorId,
         },
         include: [
-          { model: Requeriments, as: "requeriments" },
           { model: User, as: "author" },
         ],
       });
@@ -174,7 +173,6 @@ class JobsController {
           [Op.or]: [{ title: search }, { address: search }],
         },
         include: [
-          { model: Requeriments, as: "requeriments" },
           { model: User, as: "author" },
         ],
       });

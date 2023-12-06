@@ -30,6 +30,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      requeriments: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        allowNull: true
+      },
       responsibility: {
         type: Sequelize.STRING,
         allowNull: true,

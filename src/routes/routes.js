@@ -15,7 +15,6 @@ const authMiddleware = require("../app/middlewares/authToken");
 // config controllers
 const UserController = require("../app/controllers/UserController");
 const JobsController = require("../app/controllers/JobsController");
-const RequirementsController = require("../app/controllers/RequirementsController");
 
 // definitions routes
 
@@ -52,11 +51,11 @@ routes.get("/job/author/:authorId", JobsController.getJobsByAuthorId);
 routes.get("/job/search/:search", JobsController.searchJobs);
 
 // definitions of routes of the requeriment
-routes.post("/requeriment", RequirementsController.create);
-routes.put("/requeriment/:id", RequirementsController.update);
-routes.delete("/requeriment/:id", RequirementsController.delete);
-routes.get("/requeriments", RequirementsController.getAllRequeriments);
-routes.get("/requeriment/:id", RequirementsController.getRequerimentsById);
-routes.get("/requeriment/job/:jobId", RequirementsController.getRequerimentByJobId);
+// routes.post("/requeriment", RequirementsController.create);
+// routes.put("/requeriment/:id", RequirementsController.update);
+// routes.delete("/requeriment/:id", RequirementsController.delete);
+// routes.get("/requeriments", RequirementsController.getAllRequeriments);
+// routes.get("/requeriment/:id", RequirementsController.getRequerimentsById);
+// routes.get("/requeriment/job/:jobId", RequirementsController.getRequerimentByJobId);
 
 module.exports = routes;

@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       pin_code : DataTypes.STRING,
       birth_date : DataTypes.DATE,
       genre : DataTypes.STRING,
-      user_status : DataTypes.STRING,
+      status : DataTypes.BOOLEAN,
       province : DataTypes.STRING,
       country : DataTypes.STRING,
       nif : DataTypes.STRING,
