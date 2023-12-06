@@ -42,8 +42,8 @@ routes.put("/user/change-code/:id", UserController.changeCodePin);
 routes.get("/user/search/:search", UserController.searchUsers);
 
 // definitions of routes of the jobs (biskatos)
-routes.post("/job", JobsController.create);
-routes.put("/job/:id", JobsController.update);
+routes.post("/job", upload.single("image"), uploadFile, JobsController.create);
+routes.put("/job/:id", upload.single("image"), uploadFile, JobsController.update);
 routes.delete("/job/:id", JobsController.delete);
 routes.get("/jobs", JobsController.getAllJobs);
 routes.get("/job/:id", JobsController.getJobsById);

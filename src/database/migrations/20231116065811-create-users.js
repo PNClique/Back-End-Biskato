@@ -23,10 +23,6 @@ module.exports = {
       unique: true,
       allowNull: false
     },
-    // profession: {
-    //   type: Sequelize.STRING,
-    //   allowNull: true
-    // },
     status : {
       type : Sequelize.BOOLEAN,
       allowNull: true,

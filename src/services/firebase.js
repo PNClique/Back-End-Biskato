@@ -2,7 +2,7 @@ var admin = require("firebase-admin");
 
 var serviceAccount = require("../config/firebase_key.json");
 
-const BUCKET_URL = "pn-clique-streaming.appspot.com";
+const BUCKET_URL = "biskato-557d0.appspot.com";
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

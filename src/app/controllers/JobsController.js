@@ -16,9 +16,15 @@ class JobsController {
     } = req.body;
 
     try {
+      let photo;
+      if (req.file) {
+        const { firebaseUrl } = req.file;
+        photo = firebaseUrl;
+      }
+
       const jobs = await Jobs.create({
         title: title,
-        image: image,
+        image: photo,
         description: description,
         address: address,
         remuneration: remuneration,
