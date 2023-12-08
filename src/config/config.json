@@ -17,8 +17,8 @@
       "username": "edocha",
       "password": "yBGz42StUgVpjS9Nvt27jAe4eZCu8Ckt",
       "database": "biskato",
-      "host": "127.0.0.1",
-      "dialect": "dpg-clo9116qc21c73e4r540-a.oregon-postgres.render.com"
+      "host": "dpg-clo9116qc21c73e4r540-a.oregon-postgres.render.com",
+      "dialect": "postgres"
     }
   }
   
