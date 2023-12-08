@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>62/62</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>62/62</span>
+                <span class='fraction'>0/61</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -124,131 +124,128 @@
 <a name='L59'></a><a href='#L59'>59</a>
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const routes = require("express").Router();
-&nbsp;
-// config multer and firebase
-const multer = require("multer");
-&nbsp;
-const upload = multer({
-  storage: multer.memoryStorage(),
-});
-&nbsp;
-const uploadFile = require("../services/firebase.js");
-&nbsp;
-// config middlewares
-const authMiddleware = require("../app/middlewares/authToken");
-&nbsp;
-// config controllers
-const UserController = require("../app/controllers/UserController");
-const JobsController = require("../app/controllers/JobsController");
-const RequirementsController = require("../app/controllers/RequirementsController");
-&nbsp;
-// definitions routes
-&nbsp;
-// definitions of routes of the authentication and register
-routes.post("/auth", UserController.auth);
-routes.post("/register", UserController.register);
-&nbsp;
-routes.use(authMiddleware);
-&nbsp;
-routes.get("/dashboard", (req, res) =&gt; {
-  return res.status(200).send();
-});
-&nbsp;
-// definitions of routes of the user
-routes.put(
-  "/user/update/:id",
-  upload.single("image"),
-  uploadFile,
-  UserController.update
-);
-routes.get("/users", UserController.getAllJUsers);
-routes.get("/user/:id", UserController.getUserById);
-routes.put("/user/change-password/:id", UserController.changePassword);
-routes.put("/user/change-code/:id", UserController.changeCodePin);
-routes.get("/user/search/:search", UserController.searchUsers);
-&nbsp;
-// definitions of routes of the jobs (biskatos)
-routes.post("/job", JobsController.create);
-routes.put("/job/:id", JobsController.update);
-routes.delete("/job/:id", JobsController.delete);
-routes.get("/jobs", JobsController.getAllJobs);
-routes.get("/job/:id", JobsController.getJobsById);
-routes.get("/job/author/:authorId", JobsController.getJobsByAuthorId);
-routes.get("/job/search/:search", JobsController.searchJobs);
-&nbsp;
-// definitions of routes of the requeriment
-routes.post("/requeriment", RequirementsController.create);
-routes.put("/requeriment/:id", RequirementsController.update);
-routes.delete("/requeriment/:id", RequirementsController.delete);
-routes.get("/requeriments", RequirementsController.getAllRequeriments);
-routes.get("/requeriment/:id", RequirementsController.getRequerimentsById);
-routes.get("/requeriment/job/:jobId", RequirementsController.getRequerimentByJobId);
-&nbsp;
-module.exports = routes;
+<a name='L62'></a><a href='#L62'>62</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >const routes = require("express").Router();</span></span></span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// config multer and firebase</span>
+<span class="cstat-no" title="statement not covered" >const multer = require("multer");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const upload = multer({</span>
+<span class="cstat-no" title="statement not covered" >  storage: multer.memoryStorage(),</span>
+<span class="cstat-no" title="statement not covered" >});</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >const uploadFile = require("../services/firebase.js");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// config middlewares</span>
+<span class="cstat-no" title="statement not covered" >const authMiddleware = require("../app/middlewares/authToken");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// config controllers</span>
+<span class="cstat-no" title="statement not covered" >const UserController = require("../app/controllers/UserController");</span>
+<span class="cstat-no" title="statement not covered" >const JobsController = require("../app/controllers/JobsController");</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// definitions routes</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// definitions of routes of the authentication and register</span>
+<span class="cstat-no" title="statement not covered" >routes.post("/auth", UserController.auth);</span>
+<span class="cstat-no" title="statement not covered" >routes.post("/register", UserController.register);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >routes.use(authMiddleware);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >routes.get("/dashboard", (req, res) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  return res.status(200).send();</span>
+<span class="cstat-no" title="statement not covered" >});</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// definitions of routes of the user</span>
+<span class="cstat-no" title="statement not covered" >routes.put(</span>
+<span class="cstat-no" title="statement not covered" >  "/user/update/:id",</span>
+<span class="cstat-no" title="statement not covered" >  upload.single("image"),</span>
+<span class="cstat-no" title="statement not covered" >  uploadFile,</span>
+<span class="cstat-no" title="statement not covered" >  UserController.update</span>
+<span class="cstat-no" title="statement not covered" >);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/users", UserController.getAllJUsers);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/user/:id", UserController.getUserById);</span>
+<span class="cstat-no" title="statement not covered" >routes.put("/user/change-password/:id", UserController.changePassword);</span>
+<span class="cstat-no" title="statement not covered" >routes.put("/user/change-code/:id", UserController.changeCodePin);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/user/search/:search", UserController.searchUsers);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// definitions of routes of the jobs (biskatos)</span>
+<span class="cstat-no" title="statement not covered" >routes.post("/job", upload.single("image"), uploadFile, JobsController.create);</span>
+<span class="cstat-no" title="statement not covered" >routes.put("/job/:id", upload.single("image"), uploadFile, JobsController.update);</span>
+<span class="cstat-no" title="statement not covered" >routes.delete("/job/:id", JobsController.delete);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/jobs", JobsController.getAllJobs);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/job/:id", JobsController.getJobsById);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/job/author/:authorId", JobsController.getJobsByAuthorId);</span>
+<span class="cstat-no" title="statement not covered" >routes.get("/job/search/:search", JobsController.searchJobs);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >// definitions of routes of the requeriment</span>
+<span class="cstat-no" title="statement not covered" >// routes.post("/requeriment", RequirementsController.create);</span>
+<span class="cstat-no" title="statement not covered" >// routes.put("/requeriment/:id", RequirementsController.update);</span>
+<span class="cstat-no" title="statement not covered" >// routes.delete("/requeriment/:id", RequirementsController.delete);</span>
+<span class="cstat-no" title="statement not covered" >// routes.get("/requeriments", RequirementsController.getAllRequeriments);</span>
+<span class="cstat-no" title="statement not covered" >// routes.get("/requeriment/:id", RequirementsController.getRequerimentsById);</span>
+<span class="cstat-no" title="statement not covered" >// routes.get("/requeriment/job/:jobId", RequirementsController.getRequerimentByJobId);</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >module.exports = routes;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -256,7 +253,7 @@ module.exports = routes;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T07:10:10.328Z
+                at 2023-12-07T15:13:06.894Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

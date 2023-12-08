@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>65/65</span>
+                <span class='fraction'>0/66</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>65/65</span>
+                <span class='fraction'>0/66</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -128,136 +128,139 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">31x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">37x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-&nbsp;
-module.exports = (sequelize, DataTypes) =&gt; {
-  const User = sequelize.define(
-    "User",
-    {
-      name: DataTypes.STRING,
-      image: DataTypes.STRING,
-      email: DataTypes.STRING,
-      address: DataTypes.STRING,
-      password: DataTypes.STRING,
-      phone: DataTypes.STRING,
-      pin_code : DataTypes.STRING,
-      birth_date : DataTypes.DATE,
-      genre : DataTypes.STRING,
-      user_status : DataTypes.STRING,
-      province : DataTypes.STRING,
-      country : DataTypes.STRING,
-      nif : DataTypes.STRING,
-      is_admin: DataTypes.BOOLEAN,
-      level: DataTypes.BOOLEAN,
-      verification_by_email_token: DataTypes.STRING,
-      verification_by_email_expires: DataTypes.DATE,
-    },
-    {
-      tableName: "users",
-      hooks: {
-        beforeSave: async (user) =&gt; {
-          if (user.password) {
-            user.password = await bcrypt.hash(user.password, 8);
-          }
-        },
-      },
-    }
-  );
-&nbsp;
-  User.prototype.checkPassword = function (password) {
-    return bcrypt.compare(password, this.password);
-  };
-&nbsp;
-  User.prototype.generateToken = function () {
-    return jwt.sign({ id: this.id }, process.env.APP_SECRET);
-  };
-&nbsp;
-  User.associate = (models) =&gt; {
-    // def relationships of the jobs
-    User.hasMany(models.Jobs, { foreignKey: "author_id", as: "jobs" });
-&nbsp;
-    // def relationships of the applications
-    User.hasMany(models.Applications, { foreignKey: "author_id", as: "applications" });
-&nbsp;
-     // def relationships of the professions
-     User.hasMany(models.Professions, { foreignKey: "author_id", as: "professions" });
-&nbsp;
-  };
-&nbsp;
-  // User.associate = (models) =&gt; {
-  //   User.hasMany(models.Candidacy, { foreignKey: "author_id", as: "jobs" });
-  // };
-&nbsp;
-  // User.hasMany(Jobs, { as: "jobs" });
-&nbsp;
-  return User;
-};
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >const bcrypt = require("bcryptjs");</span></span></span>
+<span class="cstat-no" title="statement not covered" >const jwt = require("jsonwebtoken");</span>
+<span class="cstat-no" title="statement not covered" >const { db } = require('../../config/database')</span>
+<span class="cstat-no" title="statement not covered" >const { DataTypes } = require("sequelize");</span>
+<span class="cstat-no" title="statement not covered" >module.exports = () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const User = db.define(</span>
+<span class="cstat-no" title="statement not covered" >    "User",</span>
+<span class="cstat-no" title="statement not covered" >    {</span>
+<span class="cstat-no" title="statement not covered" >      name: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      image: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      email: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      address: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      password: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      phone: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      pin_code : DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      birth_date : DataTypes.DATE,</span>
+<span class="cstat-no" title="statement not covered" >      genre : DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      status : DataTypes.BOOLEAN,</span>
+<span class="cstat-no" title="statement not covered" >      province : DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      country : DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      nif : DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      is_admin: DataTypes.BOOLEAN,</span>
+<span class="cstat-no" title="statement not covered" >      level: DataTypes.BOOLEAN,</span>
+<span class="cstat-no" title="statement not covered" >      verification_by_email_token: DataTypes.STRING,</span>
+<span class="cstat-no" title="statement not covered" >      verification_by_email_expires: DataTypes.DATE,</span>
+<span class="cstat-no" title="statement not covered" >    },</span>
+<span class="cstat-no" title="statement not covered" >    {</span>
+<span class="cstat-no" title="statement not covered" >      tableName: "users",</span>
+<span class="cstat-no" title="statement not covered" >      hooks: {</span>
+<span class="cstat-no" title="statement not covered" >        beforeSave: async (user) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >          if (user.password) {</span>
+<span class="cstat-no" title="statement not covered" >            user.password = await bcrypt.hash(user.password, 8);</span>
+<span class="cstat-no" title="statement not covered" >          }</span>
+<span class="cstat-no" title="statement not covered" >        },</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  );</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  User.prototype.checkPassword = function (password) {</span>
+<span class="cstat-no" title="statement not covered" >    return bcrypt.compare(password, this.password);</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  User.prototype.generateToken = function () {</span>
+<span class="cstat-no" title="statement not covered" >    return jwt.sign({ id: this.id }, process.env.APP_SECRET);</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  User.associate = (models) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    // def relationships of the jobs</span>
+<span class="cstat-no" title="statement not covered" >    User.hasMany(models.Jobs, { foreignKey: "author_id", as: "jobs" });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    // def relationships of the applications</span>
+<span class="cstat-no" title="statement not covered" >    User.hasMany(models.Applications, { foreignKey: "author_id", as: "applications" });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >     // def relationships of the professions</span>
+<span class="cstat-no" title="statement not covered" >     User.hasMany(models.Professions, { foreignKey: "author_id", as: "professions" });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  // User.associate = (models) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  //   User.hasMany(models.Candidacy, { foreignKey: "author_id", as: "jobs" });</span>
+<span class="cstat-no" title="statement not covered" >  // };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  // User.hasMany(Jobs, { as: "jobs" });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  return User;</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -265,7 +268,7 @@ module.exports = (sequelize, DataTypes) =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-12-06T07:10:10.328Z
+                at 2023-12-07T15:13:06.894Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
