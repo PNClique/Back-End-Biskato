@@ -5,10 +5,7 @@
       "database": "biskato",
       "host": "dpg-clo9116qc21c73e4r540-a",
       "port": "5432",
-      "dialect": "postgres",
-      "dialectOptions": {
-        "ssl": true
-      }
+      "dialect": "postgres"
     },
     "production": {
       "username": "edocha",
@@ -16,10 +13,7 @@
       "database": "biskato",
       "host": "dpg-clo9116qc21c73e4r540-a",
       "port": "5432",
-      "dialect": "postgres",
-      "dialectOptions": {
-        "ssl": true
-      }
+      "dialect": "postgres"
     }
   }
   
