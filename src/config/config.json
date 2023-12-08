@@ -10,13 +10,6 @@
         "ssl": true
       }
     },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "biskatotest",
-      "host": "127.0.0.1",
-      "dialect": "sqlite"
-    },
     "production": {
       "username": "edocha",
       "password": "yBGz42StUgVpjS9Nvt27jAe4eZCu8Ckt",
