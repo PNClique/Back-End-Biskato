@@ -3,17 +3,28 @@
       "username": "edocha",
       "password": "yBGz42StUgVpjS9Nvt27jAe4eZCu8Ckt",
       "database": "biskato",
-      "host": "dpg-clo9116qc21c73e4r540-a",
-      "port": "5432",
-      "dialect": "postgres"
+      "host": "dpg-clo9116qc21c73e4r540-a.oregon-postgres.render.com",
+      "dialect": "postgres",
+      "dialectOptions": {
+        "ssl": true
+      }
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "biskatotest",
+      "host": "127.0.0.1",
+      "dialect": "sqlite"
     },
     "production": {
       "username": "edocha",
       "password": "yBGz42StUgVpjS9Nvt27jAe4eZCu8Ckt",
       "database": "biskato",
-      "host": "dpg-clo9116qc21c73e4r540-a",
-      "port": "5432",
-      "dialect": "postgres"
+      "host": "dpg-clo9116qc21c73e4r540-a.oregon-postgres.render.com",
+      "dialect": "postgres",
+      "dialectOptions": {
+      "ssl": true
+    }
     }
   }
   
