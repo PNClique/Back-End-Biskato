@@ -15,7 +15,7 @@ const authMiddleware = require("../app/middlewares/authToken");
 // config controllers
 const UserController = require("../app/controllers/UserController");
 const JobsController = require("../app/controllers/JobsController");
-
+const ReportsController = require("../app/controllers/ReportsController");
 // definitions routes
 
 // definitions of routes of the authentication and register
@@ -49,6 +49,9 @@ routes.get("/jobs", JobsController.getAllJobs);
 routes.get("/job/:id", JobsController.getJobsById);
 routes.get("/job/author/:authorId", JobsController.getJobsByAuthorId);
 routes.get("/job/search/:search", JobsController.searchJobs);
+
+//definitions of routes of the reports
+routes.post("/report/:job_id", ReportsController.create);
 
 // definitions of routes of the requeriment
 // routes.post("/requeriment", RequirementsController.create);
